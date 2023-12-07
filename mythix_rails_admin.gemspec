@@ -5,8 +5,8 @@ require_relative 'lib/mythix_rails_admin/version'
 Gem::Specification.new do |spec|
   spec.name        = 'mythix_rails_admin'
   spec.version     = MythixRailsAdmin::VERSION
-  spec.authors     = ['Wyatt Greenway', 'Miles Romney', 'MAST Studios']
-  spec.email       = ['th317erd@gmail.com']
+  spec.authors     = [ 'Wyatt Greenway', 'Miles Romney', 'MAST Studios' ]
+  spec.email       = [ 'th317erd@gmail.com' ]
   spec.homepage    = 'https://github.com/th317erd/mythix_rails_admin'
   spec.summary     = 'Administration for Rails'
   spec.description = 'Rails administration framework using Mythix technologies'

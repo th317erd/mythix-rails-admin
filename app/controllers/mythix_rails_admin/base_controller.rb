@@ -13,7 +13,7 @@ module MythixRailsAdmin
     def action
       render json: { success: true }
     rescue StandardError => e
-      render json: { success: false, errors: [e.message] }
+      render json: { success: false, errors: [ e.message ] }
     end
   end
 end

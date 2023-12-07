@@ -15,12 +15,15 @@ gem 'sprockets-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner-active_record'
+  gem 'factory_bot_rails'
   gem 'guard'
   gem 'guard-minitest'
   gem 'minitest'
   gem 'minitest-focus'
   gem 'minitest-stub_any_instance'
   gem 'rubocop'
+  gem 'scenic_sqlite_adapter'
   gem 'terminal-notifier-guard'
   gem 'timecop'
 end

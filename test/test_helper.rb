@@ -3,11 +3,25 @@
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require_relative 'app/dummy/config/environment'
-ActiveRecord::Migrator.migrations_paths = [File.expand_path('./dummy/db/migrate', __dir__)]
-ActiveRecord::Migrator.migrations_paths << File.expand_path('../db/migrate', __dir__)
+require_relative 'config/environment'
+# ActiveRecord::Migrator.migrations_paths = [ File.expand_path('./db/migrate', __dir__) ]
 require 'rails/test_help'
+require 'database_cleaner-active_record'
+require 'helpers/sqlite_memory_schema_loader'
 require 'timecop'
+require 'minitest'
+require 'factory_bot_rails'
+
+Timecop.safe_mode = true
+DatabaseCleaner.strategy = :truncation
+
+class Minitest::Spec
+  include FactoryBot::Syntax::Methods
+
+  after do
+    DatabaseCleaner.clean
+  end
+end
 
 # Load fixtures from the engine
 if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
@@ -19,5 +33,12 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
   ActiveSupport::TestCase.fixtures :all
 end
 
-class MythixRailsAdminTestCase < ActiveSupport::TestCase
+if Minitest.respond_to?(:before_parallel_fork)
+  Minitest.after_parallel_fork do |_i|
+    # SqliteMemorySchemaLoader.solve_compat
+    SqliteMemorySchemaLoader.load_schema_once
+  end
+else
+  # SqliteMemorySchemaLoader.solve_compat
+  SqliteMemorySchemaLoader.load_schema_once
 end

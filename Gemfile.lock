@@ -90,10 +90,19 @@ GEM
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.4)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
+    factory_bot (6.4.2)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.2)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     ffi (1.16.3)
     formatador (1.1.0)
     globalid (1.2.1)
@@ -228,6 +237,8 @@ GEM
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    scenic_sqlite_adapter (0.1.0)
+      activerecord (>= 4.0.0)
     shellany (0.0.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -256,6 +267,8 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  database_cleaner-active_record
+  factory_bot_rails
   guard
   guard-minitest
   minitest
@@ -263,6 +276,7 @@ DEPENDENCIES
   minitest-stub_any_instance
   mythix_rails_admin!
   rubocop
+  scenic_sqlite_adapter
   sprockets-rails
   sqlite3
   terminal-notifier-guard
