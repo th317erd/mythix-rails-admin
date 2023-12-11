@@ -39,6 +39,7 @@ module MythixRailsAdmin
 
       def initialize(models:)
         @models = map_application_models(models)
+        puts "Model map: #{@models}"
       end
 
       # Take a human readable string, and try to
