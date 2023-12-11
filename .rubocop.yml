@@ -17,6 +17,21 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
